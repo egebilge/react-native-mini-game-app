@@ -1,20 +1,57 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { ImageBackground, StyleSheet, SafeAreaView } from "react-native";
+import { StartGameScreen } from "./src/screens/start-game-screen";
+import { LinearGradient } from "expo-linear-gradient";
+import { Colors } from "./src/utils/constants/colors";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { GuessScreen } from "./src/screens/guess-screen";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <LinearGradient
+      colors={[Colors.primary500, Colors.accent500]}
+      style={styles.rootScreen}
+    >
+      <ImageBackground
+        source={require("./assets/images/background.png")}
+        resizeMode="cover"
+        style={styles.rootScreen}
+        imageStyle={styles.imageStyle}
+      >
+        <SafeAreaView style={styles.rootScreen}>
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="StartGame"
+              screenOptions={{
+                headerShown: false,
+                contentStyle: {
+                  backgroundColor: "transparent",
+                },
+              }}
+            >
+              <Stack.Screen
+                name="StartGameScreen"
+                component={StartGameScreen}
+              />
+              <Stack.Screen name="GuessScreen" component={GuessScreen} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </SafeAreaView>
+        <StatusBar style="auto" />
+      </ImageBackground>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  rootScreen: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  imageStyle: {
+    opacity: 0.15,
   },
 });
