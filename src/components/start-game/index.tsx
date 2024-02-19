@@ -5,16 +5,15 @@ import { PrimaryTextInput } from "../../components/common/primary-text-input";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { useStartGameScreen } from "../../hooks/start-game-screen/useStartGameScreen";
+import { useStartGame } from "../../hooks/start-game/useStartGame";
 
 type RootStackParamList = {
   GuessScreen: { userChoice: number };
 };
 
-const StartGameScreen: React.FC = () => {
+const StartGame: React.FC = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const { enteredNumber, setEnteredNumber, isValidNumber } =
-    useStartGameScreen();
+  const { enteredNumber, setEnteredNumber, isValidNumber } = useStartGame();
 
   const confirmInputHandler = () => {
     if (enteredNumber !== null && isValidNumber(enteredNumber)) {
@@ -48,4 +47,4 @@ const StartGameScreen: React.FC = () => {
   );
 };
 
-export { StartGameScreen };
+export { StartGame };

@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { ImageBackground, StyleSheet, SafeAreaView } from "react-native";
-import { StartGameScreen } from "./src/screens/start-game-screen";
+import { StartGameScreen } from "./src/screens/start-game";
 import { LinearGradient } from "expo-linear-gradient";
 import { Colors } from "./src/utils/constants/colors";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { GuessScreen } from "./src/screens/guess-screen";
+import { GuessScreen } from "./src/screens/guess";
 
 const Stack = createNativeStackNavigator();
 

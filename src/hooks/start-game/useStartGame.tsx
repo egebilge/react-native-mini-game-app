@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Alert } from "react-native";
 
-const useStartGameScreen = () => {
+const useStartGame = () => {
   const [enteredNumber, setEnteredNumber] = useState<number | null>(null);
 
   const isValidNumber = (number: number | null) => {
@@ -29,4 +29,4 @@ const useStartGameScreen = () => {
   return data;
 };
 
-export { useStartGameScreen };
+export { useStartGame };

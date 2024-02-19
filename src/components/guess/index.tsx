@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { View, Text, Button, ScrollView, Alert } from "react-native";
 import { styles } from "./styles";
 import { useRoute, RouteProp } from "@react-navigation/native";
-import { useGuessScreen } from "../../hooks/guess-screen/useGuessScreen";
+import { useGuess } from "../../hooks/guess/useGuess";
 
 type RootStackParamList = {
   GuessScreen: { userChoice: number };
@@ -15,12 +15,12 @@ const renderListItem = (value: number, numOfRound: number) => (
   </View>
 );
 
-const GuessScreen: React.FC = () => {
+const Guess: React.FC = () => {
   const route = useRoute<RouteProp<RootStackParamList, "GuessScreen">>();
   const { userChoice } = route.params;
 
   const { currentGuess, pastGuesses, nextGuessHandler, resetGameHandler } =
-    useGuessScreen({ userChoice });
+    useGuess({ userChoice });
 
   useEffect(() => {
     if (currentGuess === userChoice) {
@@ -59,4 +59,4 @@ const GuessScreen: React.FC = () => {
   );
 };
 
-export { GuessScreen };
+export { Guess };

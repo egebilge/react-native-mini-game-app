@@ -6,7 +6,7 @@ interface IGuessScreenProps {
   readonly userChoice: number;
 }
 
-const useGuessScreen = ({ userChoice }: IGuessScreenProps) => {
+const useGuess = ({ userChoice }: IGuessScreenProps) => {
   const generateRandomBetween = (
     min: number,
     max: number,
@@ -74,4 +74,4 @@ const useGuessScreen = ({ userChoice }: IGuessScreenProps) => {
   return data;
 };
 
-export { useGuessScreen };
+export { useGuess };
