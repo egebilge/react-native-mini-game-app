@@ -6,7 +6,7 @@ import { PrimaryButton } from "../../components/common/primary-button";
 import { PrimaryTextInput } from "../../components/common/primary-text-input";
 import { useStartGame } from "../../hooks/start-game/useStartGame";
 import { styles } from "./styles";
-import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 type RootStackParamList = {
   Guess: { userChoice: number | undefined };
