@@ -1,8 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { GuessScreen } from "../screens/guess";
-import { StartGameScreen } from "../screens/start-game";
+import { GuessScreen } from "../screens/guess-screen";
+import { StartGameScreen } from "../screens/start-game-screen";
 
 const Stack = createNativeStackNavigator();
 
