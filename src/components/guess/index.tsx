@@ -3,9 +3,10 @@ import { View, Text, Button, ScrollView, Alert } from "react-native";
 import { styles } from "./styles";
 import { useRoute, RouteProp } from "@react-navigation/native";
 import { useGuess } from "../../hooks/guess/useGuess";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 type RootStackParamList = {
-  GuessScreen: { userChoice: number };
+  Guess: { userChoice: number };
 };
 
 const renderListItem = (value: number, numOfRound: number) => (
@@ -16,7 +17,7 @@ const renderListItem = (value: number, numOfRound: number) => (
 );
 
 const Guess: React.FC = () => {
-  const route = useRoute<RouteProp<RootStackParamList, "GuessScreen">>();
+  const route = useRoute<RouteProp<RootStackParamList, "Guess">>();
   const { userChoice } = route.params;
 
   const { currentGuess, pastGuesses, nextGuessHandler, resetGameHandler } =
@@ -34,7 +35,10 @@ const Guess: React.FC = () => {
   }, [currentGuess, userChoice, resetGameHandler]);
 
   return (
-    <View style={styles.screen}>
+    <Animated.View
+      entering={FadeInDown.delay(200).duration(500).springify().damping(12)}
+      style={styles.screen}
+    >
       <Text style={styles.guessText}>Opponent's Guess: {currentGuess}</Text>
       <View style={styles.controls}>
         <Button
@@ -55,7 +59,7 @@ const Guess: React.FC = () => {
           )}
         </ScrollView>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 

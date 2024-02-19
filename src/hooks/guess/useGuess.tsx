@@ -30,7 +30,7 @@ const useGuess = ({ userChoice }: IGuessScreenProps) => {
   const navigation = useNavigation();
 
   const resetGameHandler = () => {
-    navigation.navigate("StartGameScreen" as never);
+    navigation.navigate("StartGame" as never);
   };
 
   const nextGuessHandler = (direction: "lower" | "greater") => {
